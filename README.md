@@ -40,3 +40,10 @@ npm run dev
 ```
 
 For deploying to Heroku, please refer to [this](https://www.youtube.com/watch?v=71wSzpLyW9k) helpful video by TraversyMedia.
+
+
+## Curl testing
+
+- ` curl http://localhost:5000/create -d '{ "booking_type" : "checkups", "location" : "Berlin" }' `
+
+- ` curl http://localhost:3000/login -d '{ "email" : "user1@gmail.com", "password" : "123456" }' `
