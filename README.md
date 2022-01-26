@@ -46,4 +46,4 @@ For deploying to Heroku, please refer to [this](https://www.youtube.com/watch?v=
 
 - ` curl http://localhost:5000/create -d '{ "booking_type" : "checkups", "location" : "Berlin" }' `
 
-- ` curl http://localhost:3000/login -d '{ "email" : "user1@gmail.com", "password" : "123456" }' `
+- ` curl http://localhost:5000/api/users/login -H 'Content-Type':'application/json' -d '{ "email" : "user1@gmail.com", "password" : "123456" }' `
