@@ -91,7 +91,7 @@ class Login extends Component {
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
-                  id="password"
+                  id="password"Dashboard
                   type="password"
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
