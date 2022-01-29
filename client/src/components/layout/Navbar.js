@@ -2,5 +2,9 @@
 import React from "react";
 
 export default function Sidebar() {
-  return <nav className="flex flex-row">fullterton</nav>;
+  return (
+    <nav className="flex">
+      <a>fullterton</a>
+    </nav>
+  );
 }

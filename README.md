@@ -47,3 +47,17 @@ For deploying to Heroku, please refer to [this](https://www.youtube.com/watch?v=
 - ` curl http://localhost:5000/create -d '{ "booking_type" : "checkups", "location" : "Berlin" }' `
 
 - ` curl http://localhost:5000/api/users/login -H 'Content-Type':'application/json' -d '{ "email" : "user1@gmail.com", "password" : "123456" }' `
+
+- ` curl http://localhost:5000/api/bookings/create -H 'Content-Type':'application/json' -d '{ "booking_type" : "checkups", "location" : "Berlin" }' `
+
+- ` curl --location --request POST 'https://data.mongodb-api.com/app/data-qcgag/endpoint/data/beta/action/findOne' \
+--header 'Content-Type: application/json' \
+--header 'Access-Control-Request-Headers: *' \
+--header 'api-key:nIuEDc05uW0trctmM6GHrfEuJ5mg8xKEVpax1VEEJWEWyoTsC51LFMVT3G2QGlgK' \
+--data-raw '{
+    "collection":"bookings",
+    "database":"test",
+    "dataSource":"FullertonHealth",
+    "projection": {"_id": 1}
+}'
+ `

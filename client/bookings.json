@@ -1,0 +1,44 @@
+[
+  {
+    "_id": { "$oid": "61f4cac8cdce828553091bbe" },
+    "booking_type": "Checkups",
+    "booking_time": { "$timestamp": { "t": 1643432823, "i": 26 } },
+    "location": "Berlin",
+    "status": "Pending Review"
+  },
+  {
+    "_id": { "$oid": "61f4cb7dcdce828553091bbf" },
+    "booking_type": "Appointment",
+    "booking_time": { "$timestamp": { "t": 1643432823, "i": 26 } },
+    "location": "Moscow",
+    "status": "Approved"
+  },
+  {
+    "_id": { "$oid": "61f4cbb3cdce828553091bc0" },
+    "booking_type": "Treatment",
+    "booking_time": { "$timestamp": { "t": 1643432823, "i": 26 } },
+    "location": "Ho Chi Minh",
+    "status": "Rejected"
+  },
+  {
+    "_id": { "$oid": "61f4cac8cdce828553091bbe" },
+    "booking_type": "Checkups",
+    "booking_time": { "$timestamp": { "t": 1643432823, "i": 26 } },
+    "location": "Berlin",
+    "status": "Pending Review"
+  },
+  {
+    "_id": { "$oid": "61f4cb7dcdce828553091bbf" },
+    "booking_type": "Appointment",
+    "booking_time": { "$timestamp": { "t": 1643432823, "i": 26 } },
+    "location": "Moscow",
+    "status": "Approved"
+  },
+  {
+    "_id": { "$oid": "61f4cbb3cdce828553091bc0" },
+    "booking_type": "Treatment",
+    "booking_time": { "$timestamp": { "t": 1643432823, "i": 26 } },
+    "location": "Ho Chi Minh",
+    "status": "Rejected"
+  }
+]
