@@ -1,64 +1,108 @@
 const express = require("express");
 const router = express.Router();
-require("dotenv").config();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
 
 // Load input validation
-// const validateBookingInput = require("../../validation/booking");
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
-// Load Booking model
-const Booking = require("../../models/Booking");
+// Load User model
+const User = require("../../models/User");
+
+// @route POST api/users/register
+// @desc Register user
+// @access Public
+router.post("/register", (req, res) => {
+  // Form validation
+
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ email: req.body.email }).then((user) => {
+    if (user) {
+      return res.status(400).json({ email: "Email already exists" });
+    } else {
+      const newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+      });
+
+      // Hash password before saving in database
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash;
+          newUser
+            .save()
+            .then((user) => res.json(user))
+            .catch((err) => console.log(err));
+        });
+      });
+    }
+  });
+});
 
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/create", (req, res) => {
-  const booking_type = req.body.booking_type;
-  const name = req.body.user.name;
-  const location = req.body.location;
-  const date = req.body.booking_date;
+router.post("/login", (req, res) => {
+  // Form validation
 
-  // Create new booking
-  const newBooking = new Booking({
-    booking_type,
-    name,
-    location,
-    date,
-  });
-  newBooking
-    .save()
-    .then((booking) => res.json(booking))
-    .catch((err) => console.log(err));
-});
+  const { errors, isValid } = validateLoginInput(req.body);
 
-router.get("/bookings", () => {
-  var data = JSON.stringify({
-    collection: "bookings",
-    database: "test",
-    dataSource: "FullertonHealth",
-    projection: {
-      _id: 1,
-    },
-  });
+  // Check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
 
-  var config = {
-    method: "get",
-    url: process.env.MONGO_URI,
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Request-Headers": "*",
-      "api-key": process.env.API_KEY,
-    },
-    data: data,
-  };
+  const email = req.body.email;
+  const password = req.body.password;
 
-  axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
+  // Find user by email
+  User.findOne({ email }).then((user) => {
+    // Check if user exists
+    if (!user) {
+      return res.status(404).json({ emailnotfound: "Email not found" });
+    }
+
+    // Check password
+    bcrypt.compare(password, user.password).then((isMatch) => {
+      if (isMatch) {
+        // User matched
+        // Create JWT Payload
+        const payload = {
+          id: user.id,
+          name: user.name,
+        };
+
+        // Sign token
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          {
+            expiresIn: 31556926, // 1 year in seconds
+          },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: "Bearer " + token,
+            });
+          }
+        );
+      } else {
+        return res
+          .status(400)
+          .json({ passwordincorrect: "Password incorrect" });
+      }
     });
-  Booking.find();
+  });
 });
 
 module.exports = router;

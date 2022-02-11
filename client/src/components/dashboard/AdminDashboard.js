@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BookingCard from "../booking/BookingCard";
 const bookings = require("../../bookings.json");
+const url = "http://localhost:5000/api/bookings";
 
 function AdminDashboard() {
-  const getBookings = () => {
-    var axios = require("axios");
-  
-  };
+  useEffect(() => {
+    const getBookings = async () => {
+      const response = await fetch(url);
+      const result = await response.json();
+      console.log(result);
+      return result;
+    };
+    getBookings();
+  }, []);
+
   return (
     <>
       <h1>Welcome to Admin Dashboard</h1>
