@@ -1,42 +1,41 @@
-import React from "react";
-import { USER_LOGIN_REQUEST } from "./types/userActionTypes";
+import * as type from "./types/userActionTypes";
 
 const login = (state = {}, action) => {
   switch (action.type) {
-    case USER_LOGIN_REQUEST:
+    case type.LOGIN_REQUEST:
       return { loading: true };
-    case LOGIN_SUCCESS:
+    case type.LOGIN_SUCCESS:
       return { loading: false, userInfo: action.payload };
-    case LOGIN_FAIL:
+    case type.LOGIN_FAIL:
       return { looading: false, error: action.payload };
-    case LOGOUT:
+    case type.LOGOUT:
       return {};
     default:
       return state;
   }
 };
 
-const register = () => {
+const register = (state = {}, action) => {
   switch (action.type) {
-    case REGISTER_REQUEST:
+    case type.REGISTER_REQUEST:
       return { loading: true };
-    case REGISTER_SUCCESS:
+    case type.REGISTER_SUCCESS:
       return { loading: false, userInfo: action.payload };
-    case REGISTER_FAIL:
+    case type.REGISTER_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
   }
 };
 
-const getDetails = () => {};
+// const getDetails = () => {};
 
-const updateProfile = () => {};
+// const updateProfile = () => {};
 
-const getList = () => {};
+// const getList = () => {};
 
-const update = () => {};
+// const update = () => {};
 
-const terminate = () => {};
+// const terminate = () => {};
 
-export { Userreducers };
+export { register, login };
