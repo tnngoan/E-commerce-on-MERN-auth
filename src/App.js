@@ -1,17 +1,27 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import {
+  NavigationBar,
+  Footer,
+  Home,
+  Cart,
+  Login,
+  Register,
+  Profile,
+} from "./components";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <NavigationBar />
       <Container>
         <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/register" element={<RegisterScreen />} />
-          <Route path="/profile" element={<ProfileScreen />} />
-          <Route path="/cart" element={<CartScreen />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Container>
       <Footer />
