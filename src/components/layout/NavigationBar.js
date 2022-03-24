@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 // import { logout } from "../actions/userActions";
 import { LinkContainer } from "react-router-bootstrap";
 import SearchBox from "./SearchBox";
+import "../../App.css";
 
 const NavigationBar = () => {
   const { userInfo } = { name: "An", isAdmin: true };
@@ -13,14 +14,19 @@ const NavigationBar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Suppee</Navbar.Brand>
+        <LinkContainer to="/">
+          <Nav.Link>
+            <i className="fas fa-bag-shopping fa-2xl"></i>
+          </Nav.Link>
+        </LinkContainer>
+        <Navbar.Brand href="/">ScrollBuy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <SearchBox />
           <Nav className="ms-auto">
             <LinkContainer to="/cart">
               <Nav.Link>
-                <i className="fas fa-shopping-cart"></i> Cart
+                <i className="fas fa-shopping-cart fa-xl"></i> Cart
               </Nav.Link>
             </LinkContainer>
             {userInfo ? (
@@ -35,7 +41,7 @@ const NavigationBar = () => {
             ) : (
               <LinkContainer to="/login">
                 <Nav.Link>
-                  <i className="fas fa-user"></i> Sign In
+                  <i className="fas fa-user fa-xl"></i> Sign In
                 </Nav.Link>
               </LinkContainer>
             )}
