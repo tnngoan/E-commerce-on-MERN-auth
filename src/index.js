@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../src/index.css";
+import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import "bootstrap/dist/css/bootstrap.css";
 import store from "./store";
 
 ReactDOM.render(

@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
 const SearchBox = () => {
+  const [keyword, setKeyword] = useState("");
+  const submitHandler = () => {
+    console.log("SUbmit");
+  };
   return (
-    <Form className="d-flex searchbox" 
-    // onSubmit={submitHandler}
-     inline="true">
+    <Form className="d-flex searchbox" onSubmit={submitHandler} inline="true">
       <Form.Control
         type="search"
         name="q"
-        // onChange={(e) => setKeyword(e.target.value)}
+        onChange={(e) => setKeyword(e.target.value)}
         placeholder="Search Products..."
         className="ms-lg-3 me-sm-1"
       ></Form.Control>

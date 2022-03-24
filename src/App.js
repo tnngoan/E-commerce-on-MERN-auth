@@ -1,7 +1,5 @@
 import React from "react";
-import "./App.css";
-// import { Provider } from "react-redux";
-// import store from "./store";
+import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   NavigationBar,
@@ -16,6 +14,7 @@ import {
 function App() {
   return (
     <BrowserRouter>
+      <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -24,7 +23,6 @@ function App() {
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
-      <NavigationBar />
     </BrowserRouter>
   );
 }
