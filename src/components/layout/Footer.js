@@ -1,18 +1,20 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { MdOutlineWifiTethering } from "react-icons/md";
 
 const Footer = () => {
-  const year = new Date().getFullYear();
+  // const year = new Date().getFullYear();
   return (
-    <footer>
-      <Container>
-        <Row>
-          <Col>
-            Copyright &copy; {year}
-            <a href="https://github.com/tnngoan"> trannhungoan</a>
-          </Col>
-        </Row>
-      </Container>
+    <footer className='flex bg-red-900  '>
+      <div>
+        <div>
+          <span>Get connected with us on social networks:</span>
+        </div>
+        <div>
+          <a href="google.com">
+            <MdOutlineWifiTethering />
+          </a>
+        </div>
+      </div>
     </footer>
   );
 };
