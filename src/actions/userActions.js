@@ -3,7 +3,7 @@ import * as user from "../reducers/types/userActionTypes";
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    dispatch({ type: LOGIN_REQUEST });
+    dispatch({ type: user.LOGIN_REQUEST });
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -14,11 +14,11 @@ export const login = (email, password) => async (dispatch) => {
       { email, password },
       config
     );
-    dispatch({ type: LOGIN_SUCCESS, payload: data });
+    dispatch({ type: user.LOGIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: LOGIN_FAIL,
+      type: user.LOGIN_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
