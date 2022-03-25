@@ -5,15 +5,17 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer>
-      <Container>
-        <Row>
-          <Col className="text-muted">
-            Copyright &copy; {currentYear} <b>Scroll Buy </b> <span>by </span>
-            <a href="https://github.com/tnngoan">tnngoan</a>
-          </Col>
-        </Row>
-      </Container>
+    <footer class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p>
+        &copy; {currentYear} Scroll Buy,{" "}
+        <a className="ngoan" href="https://github.com/tnngoan">
+          NGOAN
+        </a>{" "}
+        Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
+      </p>
     </footer>
   );
 };

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Carousel from "../product/ProductsCarousel";
 
 const Home = () => {
   return (
-    <div className='bg-red-900'>Home</div>
-  )
-}
+    <div>
+      <Carousel />
+    </div>
+  );
+};
 
-export default Home
+export default Home;
