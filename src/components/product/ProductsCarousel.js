@@ -1,23 +1,12 @@
 import React from "react";
 import { Carousel, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
-const products = [
-  {
-    _id: 1,
-    name: "Kale",
-    price: 12,
-    image: require("../../assets/kale.png"),
-  },
-  {
-    _id: 2,
-    name: "Winter Melon",
-    price: 20,
-    image: require("../../assets/melon.jpg"),
-  },
-];
+import products from "../../products.json";
 
 const ProductsCarousel = () => {
+  const getImage = (url) => {
+    return require(`../../${url}`);
+  };
   return (
     <Carousel variant="dark" pause="hover">
       {products.map((product) => (
@@ -27,7 +16,7 @@ const ProductsCarousel = () => {
               width={500}
               height={500}
               className="mx-auto d-block"
-              src={product.image}
+              src={getImage(product.image)}
               alt={product.name}
               fluid
             />
