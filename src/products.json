@@ -1,0 +1,14 @@
+[
+  {
+    "_id": 1,
+    "name": "Kale",
+    "price": 12,
+    "image": "assets/kale.png"
+  },
+  {
+    "_id": 2,
+    "name": "Winter Melon",
+    "price": 20,
+    "image": "assets/melon.jpg"
+  }
+]
