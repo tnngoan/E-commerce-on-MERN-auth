@@ -1,14 +1,32 @@
-import React, { useState, useNavigate, useLocation } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import FormContainer from "./FormContainer";
 import LoadingSpinner from "../layout/LoadingSpinner";
-import { Link } from "react-router-dom";
+import { login } from "../../actions/userActions";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const submitHandler = () => {
-    console.log("submit");
+
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const userLogin = useSelector((state) => state.login);
+  const { userInfo, loading, error } = userLogin;
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, userInfo, redirect]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
   };
 
   return (
@@ -40,6 +58,9 @@ const Login = () => {
       <Row className="py-3">
         <Col>
           New Customer ?{" "}
+          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+            Register
+          </Link>{" "}
         </Col>
       </Row>
     </FormContainer>
