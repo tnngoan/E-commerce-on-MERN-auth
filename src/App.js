@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   NavigationBar,
@@ -9,6 +9,7 @@ import {
   Login,
   Register,
   Profile,
+  ProductDetails,
 } from "./components";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
