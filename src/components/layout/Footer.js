@@ -11,7 +11,7 @@ const Footer = () => {
       </p>
       <p>
         &copy; {currentYear} Scroll Buy,{" "}
-        <a className="ngoan" href="https://github.com/tnngoan">
+        <a className="decoration-none" href="https://github.com/tnngoan">
           NGOAN
         </a>{" "}
         Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>

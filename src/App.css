@@ -19,6 +19,51 @@ footer {
   margin: 1rem 0;
 }
 
-.ngoan {
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+
+.carousel-caption {
+  margin-top: 40px;
+  padding-top: 50px;
+}
+
+.carousel-caption h2 {
+  font-size: 1rem;
+}
+
+.carousel img {
+  width: 350px;
+  height: 400px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel a {
+  margin: 0 auto;
+}
+
+.form-select {
+  padding: 1rem 1rem;
+}
+
+.dropdown-toggle:hover .dropdown-menu {
+  display: block;
+}
+
+.decoration-none {
   text-decoration: none;
+}
+
+.product-img {
+  display: block;
+  object-fit: scale-down;
+  width: 100%;
+  height: 300px;
 }
