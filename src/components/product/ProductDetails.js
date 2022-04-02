@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Loader, Message, Meta, Rating } from "../../components";
+import { LoadingSpinner, Message, Meta, Rating } from "../../components";
 import {
   Row,
   Form,
@@ -143,7 +143,7 @@ const ProductDetails = () => {
                         class="btn-sm mx-1 btn btn-danger"
                         onClick={() => deleteReviewHandler(review)}
                       >
-                        <i class="fas fa-trash"></i>
+                        <i className="fas fa-trash"></i>
                       </button>
                     </Col>
                   </Row>
