@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { LoadingSpinner, Message, Meta, Rating } from "../../components";
+import { Link } from "react-router-dom";
+import { Message, Meta, Rating } from "../../components";
 import {
   Row,
   Form,
@@ -19,10 +19,8 @@ const product = {
   comment: "Looking great!",
   image: require("../../assets/green.jpg"),
 };
-const error = "no error";
 
 const ProductDetails = () => {
-  const match = useParams();
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");

@@ -1,15 +1,17 @@
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-// import { logout } from "../actions/userActions";
+import { logout } from "../../actions/userActions";
 import { LinkContainer } from "react-router-bootstrap";
 import SearchBox from "./SearchBox";
 import "../../App.css";
 
 const NavigationBar = () => {
-  const { userInfo } = { name: "An", isAdmin: true };
+  const dispatch = useDispatch();
+  const userLogin = useSelector((state) => state.login);
+  const { userInfo } = userLogin;
   const logoutHandler = () => {
-    console.log("log out");
+    dispatch(logout());
   };
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -19,7 +21,7 @@ const NavigationBar = () => {
             <i className="fas fa-bag-shopping fa-2xl"></i>
           </Nav.Link>
         </LinkContainer>
-        <Navbar.Brand href="/">ScrollBuy</Navbar.Brand>
+        <Navbar.Brand href="/">Scroll Buy</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <SearchBox />
