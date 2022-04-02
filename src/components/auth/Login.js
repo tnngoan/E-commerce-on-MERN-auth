@@ -3,8 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import FormContainer from "./FormContainer";
-import LoadingSpinner from "../layout/LoadingSpinner";
 import { login } from "../../actions/userActions";
+import { Message, LoadingSpinner } from "../../components";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -32,6 +32,8 @@ const Login = () => {
   return (
     <FormContainer>
       <h1>Sign In</h1>
+      {error && <Message variant="danger">{error}</Message>}
+      {loading && <LoadingSpinner />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email" className="my-3">
           <Form.Label>Email address</Form.Label>

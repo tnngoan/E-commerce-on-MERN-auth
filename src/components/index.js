@@ -6,7 +6,7 @@ export { default as Register } from "./auth/Register";
 export { default as Cart } from "./product/Cart";
 export { default as Profile } from "./Profile";
 export { default as ProductDetails } from "./product/ProductDetails";
-export { default as Loader } from "./layout/Loader";
+export { default as LoadingSpinner } from "./layout/LoadingSpinner";
 export { default as Message } from "./layout/Message";
 export { default as Meta } from "./layout/Meta";
-export { default as Rating } from './product/Rating'
+export { default as Rating } from "./product/Rating";
