@@ -13,7 +13,7 @@ const Product = ({ product }) => {
           className="product-img"
         />
       </Link>
-      <Card.Body>
+      <Card.Body className="flex-cols">
         <Link to={`/product/${product._id}`}>
           <Card.Title as="div">
             <strong>{product.name}</strong>

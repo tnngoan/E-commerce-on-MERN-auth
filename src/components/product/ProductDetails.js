@@ -42,12 +42,12 @@ const ProductDetails = () => {
       </Link>
       <>
         <Meta title={product.name} />
-        <Row>
+        <Row className="container-fluid justify-content-center">
           <Col md={6}>
             <Image src={product.image} alt={product.name} fluid />
           </Col>
-          <Col md={3}>
-            <ListGroup variant="flush">
+          <Col md={4}>
+            <ListGroup variant="flush py-4">
               <ListGroup.Item>
                 <h3>{product.name}</h3>
               </ListGroup.Item>
@@ -63,8 +63,6 @@ const ProductDetails = () => {
                 <div>{product.description}</div>
               </ListGroup.Item>
             </ListGroup>
-          </Col>
-          <Col md={3}>
             <Card>
               <ListGroup>
                 <ListGroup.Item>
@@ -119,8 +117,7 @@ const ProductDetails = () => {
             </Card>
           </Col>
         </Row>
-        <Row className="mt-3">
-          <Col md={6}>
+          <Col md={6} className='container-fluid justify-content-center'>
             <h2>Reviews</h2>
             {product.reviews.length === 0 && (
               <Message variant="secondary">No Reviews</Message>
@@ -128,7 +125,7 @@ const ProductDetails = () => {
             <ListGroup variant="flush">
               {product.reviews.map((review) => (
                 <ListGroup.Item key={review._id}>
-                  <Row className="">
+                  <Row>
                     <Col>
                       <strong>{review.name}</strong>
                       <Rating value={review.rating} />
@@ -168,7 +165,6 @@ const ProductDetails = () => {
                         <option value="5">5 - Excellent</option>
                       </Form.Control>
                     </Form.Group>
-
                     <Form.Group controlId="comment" className="my-3">
                       <Form.Label>Comment</Form.Label>
                       <Form.Control
@@ -189,7 +185,6 @@ const ProductDetails = () => {
               </Message>
             </ListGroup>
           </Col>
-        </Row>
       </>
     </>
   );
