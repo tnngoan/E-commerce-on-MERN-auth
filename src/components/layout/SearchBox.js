@@ -5,10 +5,11 @@ import { Form, Button } from "react-bootstrap";
 const SearchBox = () => {
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
-      navigate(`/search/${keyword}`);
+      navigate(`/search?q=${keyword}`);
     } else {
       navigate("/");
     }

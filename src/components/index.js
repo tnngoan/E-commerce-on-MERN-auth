@@ -10,3 +10,4 @@ export { default as LoadingSpinner } from "./layout/LoadingSpinner";
 export { default as Message } from "./layout/Message";
 export { default as Meta } from "./layout/Meta";
 export { default as Rating } from "./product/Rating";
+export { default as Checkout } from "./checkout/Checkout";
